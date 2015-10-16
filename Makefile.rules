@@ -1,0 +1,30 @@
+#!/bin/csh
+
+CXX = g++
+CC = gcc
+
+
+ifndef OSTYPE
+OSTYPE=linux-gnu
+endif
+
+ifeq ($(OSTYPE),linux-gnu)
+INCDIR =
+#LDLIBDIR =  -fopenmp
+LDLIBS = -lm
+else
+#LDLIBDIR =  -fopenmp
+LDLIBS = -lm
+endif
+
+
+%.o:%.cpp
+	$(CXX)  $(INCDIR) -c $< -o $@  
+	mv -f $@ $(BINDIR) 
+
+%.o:%.c
+	$(CC) $(INCDIR) -c $< -o $@ 
+	mv -f $@ $(BINDIR) 
+
+
+

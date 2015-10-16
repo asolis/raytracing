@@ -1,0 +1,24 @@
+scene 	{ antialising:2; iterations:2; exposure:-3.0; spp:30; background: [0,0,0]; direct:1; indirect:1;} 
+
+camera {  center: [0.0,0,0.0]; direction: [0.0,0.0,1.0]; up: [0.0, 1.0, 0.0]; flength: 1000.0; resolution:[500,500];    }
+
+maTErial{ emission:[5.0,5.0,5.0]; }
+maTErial{ color:[0.8,0.8,0.8]; diffuse :[0.6,0.6,0.6]; type:diff; }
+maTErial{ color:[0.2,0.1,0.6]; diffuse :[0.6,0.6,0.6]; type:diff; }
+maTErial{ color:[0.6,0.2,0.1]; diffuse :[0.6,0.6,0.6]; type:diff; }
+maTErial{ color:[1.0,1.0,1.0]; power:20; type:specp; }
+maTErial{ color:[1.0,1.0,1.0]; diffuse :[0.3,0.3,0.3]; type:dspec; }
+maTErial{ color:[1.0,1.0,1.0]; type:refr; rIndex:1.5; }
+maTErial{ color:[1.0,1.0,1.0]; type:spec; }
+
+plane{ v1:[-200,500,1700]; v3:[200, 500,1700];  v2:[-200,500,1300];  material:0; } //light
+
+plane{ v1:[-500,-500,2280]; v2:[500, -500,2280];  v3:[-500,-500,1000];  material:1; } //floor
+plane{ v1:[-500,-500,1000]; v2:[-500, 500,1000];  v3:[-500,-500,2280];   material:2; } //left
+plane{ v1:[ 500,-500,2280]; v2:[ 500, 500,2280];  v3:[500,-500,1000];   material:3; } //right
+plane{ v1:[-500, 500,2280]; v2:[-500, 500,1000];  v3:[500, 500,2280];    material:1; } //ceiling
+plane{ v1:[-500,-500,2280]; v2:[-500, 500,2280];  v3:[500,-500,2280];  material:1; } //back
+
+
+sphere { center:[-230,-300,1820]; radius:200.0; material:7; }
+sphere { center:[ 230,-300,1420]; radius:200.0; material:6; }
